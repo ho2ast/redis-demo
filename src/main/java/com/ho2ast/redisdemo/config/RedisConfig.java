@@ -20,32 +20,6 @@ import java.time.Duration;
 @Configuration
 @EnableCaching
 public class RedisConfig {
-//    @Value("${spring.redis.host}")
-//    private String redisHost;
-//    @Value("${spring.redis.port}")
-//    private String redisPort;
-//    @Value("${spring.redis.password}")
-//    private String redisPassword;
-//
-//    @Bean
-//    public RedisConnectionFactory redisConnectionFactory() {
-//        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-//        redisStandaloneConfiguration.setHostName(redisHost);
-//        redisStandaloneConfiguration.setPort(Integer.parseInt(redisPort));
-//        redisStandaloneConfiguration.setPassword(redisPassword);
-//        LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(redisStandaloneConfiguration);
-//        return lettuceConnectionFactory;
-//    }
-//
-//    @Bean
-//    public RedisTemplate<String, Object> redisTemplate() {
-//        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-//        redisTemplate.setConnectionFactory(redisConnectionFactory());
-//        redisTemplate.setKeySerializer(new StringRedisSerializer());
-//        redisTemplate.setValueSerializer(new StringRedisSerializer());
-//        return redisTemplate;
-//    }
-
     @Bean
     public CacheManager userCacheManager(RedisConnectionFactory connectionFactory) {
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
@@ -58,4 +32,31 @@ public class RedisConfig {
                 .cacheDefaults(redisCacheConfiguration)
                 .build();
     }
+
+//    @Value("${spring.redis.host}")
+//    private String redisHost;
+//    @Value("${spring.redis.port}")
+//    private String redisPort;
+//    @Value("${spring.redis.password}")
+//    private String redisPassword;
+
+//    @Bean
+//    public RedisConnectionFactory redisConnectionFactory() {
+//        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
+//        redisStandaloneConfiguration.setHostName(redisHost);
+//        redisStandaloneConfiguration.setPort(Integer.parseInt(redisPort));
+//        redisStandaloneConfiguration.setPassword(redisPassword);
+//        LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(redisStandaloneConfiguration);
+//        return lettuceConnectionFactory;
+//    }
+
+//    @Bean
+//    public RedisTemplate<String, Object> redisTemplate() {
+//        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+//        redisTemplate.setConnectionFactory(redisConnectionFactory());
+//        redisTemplate.setKeySerializer(new StringRedisSerializer());
+//        redisTemplate.setValueSerializer(new StringRedisSerializer());
+//        return redisTemplate;
+//    }
+
 }
