@@ -17,4 +17,9 @@ public class MemberController {
         return memberService.listMember();
     }
 
+    @GetMapping("/memberById")
+    public Member memberById(String name) {
+        return memberService.memberById(name);
+    }
+
 }

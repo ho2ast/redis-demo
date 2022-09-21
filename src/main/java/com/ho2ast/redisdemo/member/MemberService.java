@@ -13,12 +13,12 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
 
-    @Cacheable("member")
+    @Cacheable(cacheNames = "member")
     public List<Member> listMember() {
         return memberRepository.findAll();
     }
 
-    @Cacheable(key = "#name")
+    @Cacheable(value="getbyName", key = "#name")
     public Member memberById(String name) {
         return memberRepository.findById(name).get();
     }
